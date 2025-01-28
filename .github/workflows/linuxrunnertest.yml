@@ -4,10 +4,6 @@ name: linux Runner test
 #on: [push, workflow_dispatch]
 on: workflow_dispatch
 
-env:
-  DOTNET_ROOT: ${{ runner.temp }}/dotnet
-  PATH: ${{ runner.temp }}/dotnet:$PATH
-  
 jobs:
   #Build, test and publish .net web project in repository
   buildandtest:
@@ -15,6 +11,12 @@ jobs:
     steps:
     #checkout the repository
     - uses: actions/checkout@v4
+    - name: Set up .NET environment
+        env:
+          DOTNET_ROOT: $RUNNER_TEMP/dotnet
+          PATH: $RUNNER_TEMP/dotnet:$PATH
+        run: |
+          echo "Environment configured for .NET installation"
     #prepare runner for desired .net version SDK
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
