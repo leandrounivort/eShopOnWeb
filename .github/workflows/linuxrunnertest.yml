@@ -11,6 +11,7 @@ jobs:
     steps:
     #checkout the repository
     - uses: actions/checkout@v4
+    #set de env path
     - name: Set up .NET environment
         env:
           DOTNET_ROOT: $RUNNER_TEMP/dotnet
