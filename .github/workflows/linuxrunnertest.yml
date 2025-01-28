@@ -11,13 +11,6 @@ jobs:
     steps:
     #checkout the repository
     - uses: actions/checkout@v4
-    #set de env path
-    - name: Set up .NET environment
-        env:
-          DOTNET_ROOT: $RUNNER_TEMP/dotnet
-          PATH: $RUNNER_TEMP/dotnet:$PATH
-        run: |
-          echo "Environment configured for .NET installation"
     #prepare runner for desired .net version SDK
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
