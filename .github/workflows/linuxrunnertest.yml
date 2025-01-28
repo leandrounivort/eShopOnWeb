@@ -4,6 +4,10 @@ name: linux Runner test
 #on: [push, workflow_dispatch]
 on: workflow_dispatch
 
+env:
+  DOTNET_ROOT: $RUNNER_TEMP/dotnet
+  PATH: $RUNNER_TEMP/dotnet:$PATH
+  
 jobs:
   #Build, test and publish .net web project in repository
   buildandtest:
